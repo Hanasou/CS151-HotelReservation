@@ -7,4 +7,5 @@ import javax.swing.*;
  */
 public class ReservationPanel extends JPanel
 {
+	
 }

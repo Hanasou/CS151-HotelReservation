@@ -5,5 +5,7 @@
  */
 public class GuestAccount extends Account
 {
-
+	public GuestAccount (String name, String username, String password) {
+		super(name, username, password);
+	}
 }

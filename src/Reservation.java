@@ -5,7 +5,13 @@
  */
 public class Reservation
 {
-    Account attachedAccount;
-    Room room;
-    TimeInterval time;
+    private Account attachedAccount;
+    private Room room;
+    private TimeInterval time;
+    
+    public Reservation (Account a, Room r, TimeInterval t) {
+    	this.attachedAccount = a;
+    	this.room = r;
+    	this.time = t;
+    }
 }

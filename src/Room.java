@@ -5,6 +5,13 @@
  */
 public class Room
 {
-    int number;
-    double price;
+    private int number;
+    private double price;
+    private boolean reserved;
+    
+    public Room (int n, double p) {
+    	this.number = n;
+    	this.price = p;
+    	this.reserved = false;
+    }
 }

@@ -14,4 +14,16 @@ public class AccountDB
         accounts = new ArrayList<>();
     }
 
+    public void add(Account a) {
+    	accounts.add(a);
+    }
+    
+    public boolean validate(String username, String password) {
+    	for (Account a : accounts) {
+    		if (a.getUsername().equals(username) && a.getPassword().equals(password)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 }
