@@ -14,4 +14,8 @@ public class Room
     	this.price = p;
     	this.reserved = false;
     }
+    
+    public boolean isReserved() {
+    	return reserved;
+    }
 }
