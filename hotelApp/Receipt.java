@@ -1,3 +1,4 @@
+package hotelApp;
 
 /**
  * Interface that defines requirements for receipts when they need to be displayed

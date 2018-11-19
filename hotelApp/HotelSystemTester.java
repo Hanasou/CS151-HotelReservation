@@ -1,3 +1,5 @@
+package hotelApp;
+
 /**
  * Tester class where any testing can be done to confirm code is working.
  * Final implmentation of project will be in HotelSystem
@@ -9,6 +11,6 @@ public class HotelSystemTester
 {
     public static void main(String[] args)
     {
-
+        DataStorage db = new DataStorage();
     }
 }

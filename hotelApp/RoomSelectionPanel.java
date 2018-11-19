@@ -1,3 +1,5 @@
+package hotelApp;
+
 import javax.swing.*;
 
 /**

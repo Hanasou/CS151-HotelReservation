@@ -1,3 +1,5 @@
+package hotelApp;
+
 /**
  * Class that gives an in-depth version of any given receipt, more verbose than SimpleReceipt
  * @author
