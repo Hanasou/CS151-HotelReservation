@@ -138,7 +138,6 @@ public class DataStorage
      */
     public boolean saveToFile()
     {
-        //TODO: Finish/test
         try
         {
             FileWriter accWriter = new FileWriter(accountFile);
