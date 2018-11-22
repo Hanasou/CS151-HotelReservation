@@ -1,3 +1,6 @@
+package hotelApp;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -9,7 +12,7 @@ import java.time.LocalDateTime;
  */
 public class TimeInterval
 {
-    private LocalDateTime startTime, endTime;
+    private LocalDate startTime, endTime;
 
     /**
      * Constructor taking in two times and initializes instance variables to these values
@@ -17,7 +20,7 @@ public class TimeInterval
      * @param start the starting time of the event
      * @param end the ending time of the event
      */
-    public TimeInterval(LocalDateTime start, LocalDateTime end)
+    public TimeInterval(LocalDate start, LocalDate end)
     {
         startTime = start;
         endTime = end;
@@ -51,7 +54,7 @@ public class TimeInterval
      *
      * @return the starting time of the TimeInterval
      */
-    public LocalDateTime getStartTime()
+    public LocalDate getStartTime()
     {
         return startTime;
     }
@@ -61,7 +64,7 @@ public class TimeInterval
      *
      * @return the ending time of the TimeInterval
      */
-    public LocalDateTime getEndTime()
+    public LocalDate getEndTime()
     {
         return endTime;
     }
@@ -73,7 +76,7 @@ public class TimeInterval
      *
      * @param t the new starting time for the event
      */
-    public void setStartTime(LocalDateTime t)
+    public void setStartTime(LocalDate t)
     {
         startTime = t;
     }
@@ -85,19 +88,19 @@ public class TimeInterval
      *
      * @param t the new ending time for the event
      */
-    public void setEndTime(LocalDateTime t)
+    public void setEndTime(LocalDate t)
     {
         endTime = t;
     }
 
     /**
-     * Provides a format for the time of the event, slicing the date off of the LocalDateTime and printing their respective times
-     *
+     * Provides a format for the time of the event, defaulting to yyyy-MM-dd <BR>
+     * For printing a specific format of the date, grab the start or end time and use the format method in LocalDate
      * @return a string containing the start and end times, separated by a hyphen
      */
     @Override
     public String toString()
     {
-        return startTime.toString().substring(11) + " - " + endTime.toString().substring(11);
+        return startTime.toString() + " - " + endTime.toString();
     }
 }

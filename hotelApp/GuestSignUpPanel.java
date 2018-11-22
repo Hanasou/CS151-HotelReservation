@@ -1,3 +1,5 @@
+package hotelApp;
+
 import javax.swing.*;
 
 /**
@@ -7,5 +9,6 @@ import javax.swing.*;
  */
 public class GuestSignUpPanel extends JPanel
 {
+    //TODO: Make sure when signing up that they must have a unique username!
 
 }
