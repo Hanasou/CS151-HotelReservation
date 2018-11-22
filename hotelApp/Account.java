@@ -12,6 +12,7 @@ public abstract class Account implements Comparable
     private String name, username, password;
     private boolean isManager;
     private int accID;
+    private ArrayList<Reservation> reservations;
     
     public Account (String name, String username, String password, boolean isManager, int accountID) {
     	this.name = name;
@@ -19,6 +20,7 @@ public abstract class Account implements Comparable
     	this.password = password;
     	this.isManager = isManager;
     	this.accID = accountID;
+    	reservations = new ArrayList<>();
     }
 
 
@@ -44,6 +46,19 @@ public abstract class Account implements Comparable
         return 0;
     }
 
+    public void addReservation(Reservation r)
+    {
+        reservations.add(r);
+    }
+
+    //TODO: Decide on what parameter to pass in
+    /*
+    public boolean removeReservation(? ?)
+    {
+
+    }
+    */
+
     @Override
     public boolean equals(Object that)
     {
@@ -53,8 +68,8 @@ public abstract class Account implements Comparable
     @Override
     public String toString()
     {
-        String delimeter = ", ";
-        return name + delimeter + username + delimeter + password + delimeter + isManager;
+
+        return "name: " + name +  " username: " + username + " manager: " + isManager + " account ID: " + accID;
     }
 
     public boolean isManager()
@@ -69,5 +84,9 @@ public abstract class Account implements Comparable
     }
     public String getName() {
     	return name;
+    }
+    public ArrayList<Reservation> getReservations()
+    {
+        return reservations;
     }
 }

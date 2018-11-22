@@ -18,4 +18,24 @@ public class Reservation
     	this.time = t;
     }
 
+    public Account getAttachedAccount()
+    {
+        return attachedAccount;
+    }
+
+    public Room getRoom()
+    {
+        return room;
+    }
+
+    public TimeInterval getTime()
+    {
+        return time;
+    }
+
+    public String toString()
+    {
+        return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time;
+    }
+
 }

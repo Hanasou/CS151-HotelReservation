@@ -4,3 +4,4 @@ Nick, NPSG, 42, true
 Steve, SteveS, 12345, false
 Alice, AliceA, 12345, true
 Dave, DaveD, 111, false
+AddTest, TESTUN, hi, false

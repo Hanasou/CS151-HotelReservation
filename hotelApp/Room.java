@@ -14,4 +14,19 @@ public class Room
     	this.number = n;
     	this.price = p;
     }
+
+    public int getRoomNumber()
+    {
+        return number;
+    }
+
+    public double getPrice()
+    {
+        return price;
+    }
+
+    public String toString()
+    {
+        return "Room: " + number + " Price: $" + price;
+    }
 }
