@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 /**
  * Tester class where any testing can be done to confirm code is working.
- * Final implmentation of project will be in HotelSystem
+ * Final implementation of project will be in HotelSystem
  * @see HotelSystem
- * @author Nicholas Paapno
+ * @author Nicholas Papano
  * Date created: 11/13/2018
  */
 public class HotelSystemTester
@@ -24,8 +24,6 @@ public class HotelSystemTester
         {
             System.out.println("Success");
         }
-
-
         db.saveToFile();
     }
 }
