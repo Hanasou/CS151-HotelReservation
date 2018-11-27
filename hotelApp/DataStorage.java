@@ -273,7 +273,7 @@ public class DataStorage
     public ArrayList<Room> getAvailableRooms(TimeInterval duration)
     {
         //TODO: MAKE SURE TO TEST
-    	ArrayList<Room> available = (ArrayList<Room>) rooms.clone();
+    	ArrayList<Room> available = new ArrayList<>(rooms);
         for (Account a : accounts)
         {
             for (Reservation r : a.getReservations())
