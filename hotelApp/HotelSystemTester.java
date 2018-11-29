@@ -1,6 +1,9 @@
 package hotelApp;
 
+import java.awt.*;
 import java.util.ArrayList;
+
+import javax.swing.*;
 
 /**
  * Tester class where any testing can be done to confirm code is working.
@@ -11,19 +14,15 @@ import java.util.ArrayList;
  */
 public class HotelSystemTester
 {
+	public static int width = 500;
+	
     public static void main(String[] args)
     {
-        DataStorage db = new DataStorage();
-        System.out.println(db.addAccount(new GuestAccount("asdf", "123", "uipqro", 27)));
-
-        if (!db.addAccount(new GuestAccount("NPSG", "TESTUN", "hi", 38)))
-        {
-            System.out.println("FAILED");
-        }
-        else
-        {
-            System.out.println("Success");
-        }
-        db.saveToFile();
+    	DataStorage db = new DataStorage();
+    	db.addAccount(new GuestAccount("jim", "jim123", "swordfish", 99231));
+    	db.addAccount(new ManagerAccount("jim", "sam", "swordfish", 99230));
+    	AccountSelectionPanel a = new AccountSelectionPanel(db, 300);
+    	//GuestSignInPanel b  = new GuestSignInPanel(db, width);
+    	
     }
 }
