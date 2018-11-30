@@ -50,8 +50,8 @@ public class DataStorage
         rooms.add(new Room(580, 300));
         rooms.add(new Room(590, 300));
 
-        reservationFile = new File("hotelApp/reservations.txt");
-        accountFile = new File("hotelApp/accounts.txt");
+        reservationFile = new File("src/hotelApp/reservations.txt");
+        accountFile = new File("src/hotelApp/accounts.txt");
 
         populateFromFile();
     }
@@ -217,11 +217,20 @@ public class DataStorage
      * @param password the password of the account
      * @return true if correct username/password combo, false otherwise
      */
-    public boolean validate(String username, String password)
+    public boolean guestValidate(String username, String password)
     {
         for (Account a : accounts)
         {
-            if (a.getUsername().equals(username) && a.getPassword().equals(password))
+            if (a.getUsername().equals(username) && a.getPassword().equals(password) && !a.isManager())
+                return true;
+        }
+        return false;
+    }
+    public boolean managerValidate(String username, String password)
+    {
+        for (Account a : accounts)
+        {
+            if (a.getUsername().equals(username) && a.getPassword().equals(password) && a.isManager())
                 return true;
         }
         return false;
