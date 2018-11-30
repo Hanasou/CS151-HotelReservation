@@ -1,5 +1,7 @@
 package hotelApp;
 
+
+import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -14,8 +16,6 @@ public class AccountSelectionPanel extends JFrame
 
 	private JButton guest;
 	private JButton manager;
-	
-	
 	public AccountSelectionPanel(DataStorage db, int width)
 	{
 
