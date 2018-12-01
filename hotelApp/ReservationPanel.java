@@ -7,7 +7,7 @@ import javax.swing.*;
  * @author
  * Date created: 11/13/2018
  */
-public class ReservationPanel extends JPanel
+public class ReservationPanel extends JFrame
 {
 	
 }

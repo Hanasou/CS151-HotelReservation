@@ -38,7 +38,7 @@ public class GuestSignInPanel extends JFrame
 					System.out.println("validated");
 				}
 				else {
-					System.out.println("nope");
+					JOptionPane.showMessageDialog(panel, "Credentials not found. Please try again.");
 				}
 			}
 		});
