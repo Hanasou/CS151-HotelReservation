@@ -18,6 +18,14 @@ public class Reservation
     	this.time = t;
     }
 
+    @Override
+    public boolean equals(Object r) {
+    	Reservation that = (Reservation) r;
+    	if (this.attachedAccount.equals(that.attachedAccount) && this.room.equals(that.room) && this.time.equals(that.time)) {
+    		return true;
+    	}
+    	return false;
+    }
     public Account getAttachedAccount()
     {
         return attachedAccount;
@@ -36,6 +44,9 @@ public class Reservation
     public String toString()
     {
         return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time;
+    }
+    public String stringView() {
+    	return room + " " + time;
     }
 
 }
