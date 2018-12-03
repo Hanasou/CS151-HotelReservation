@@ -1,5 +1,7 @@
 package hotelApp;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +19,10 @@ public class DataStorage
 {
     private ArrayList<Account> accounts;
     private ArrayList<Room> rooms;
+    private ArrayList<ChangeListener> listeners;
     private File reservationFile, accountFile;
     private static DateTimeFormatter date_format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    private int accID;
 
     /**
      * Public ctor that initializes the database. It populates its data structures with information from the files
@@ -27,7 +31,8 @@ public class DataStorage
     {
         accounts = new ArrayList<>();
         rooms = new ArrayList<>();
-
+        listeners = new ArrayList<>();
+        accID = 0;
         // Hard coded list of rooms
         rooms.add(new Room(100, 100));
         rooms.add(new Room(110, 100));
@@ -69,7 +74,6 @@ public class DataStorage
             Scanner accSc = new Scanner(accountFile);
             Scanner resSc = new Scanner(reservationFile);
             String nextLn;
-            int lineNum = 0;
 
             // Get accounts from file
             while (accSc.hasNextLine())
@@ -82,9 +86,9 @@ public class DataStorage
                  */
                 boolean isManager = Boolean.parseBoolean(accInfo[3]);
                 if (isManager)
-                    accounts.add(new ManagerAccount(accInfo[0], accInfo[1], accInfo[2], lineNum++));
+                    accounts.add(new ManagerAccount(accInfo[0], accInfo[1], accInfo[2], accID++));
                 else
-                    accounts.add(new GuestAccount(accInfo[0], accInfo[1], accInfo[2], lineNum++));
+                    accounts.add(new GuestAccount(accInfo[0], accInfo[1], accInfo[2], accID++));
             }
 
             // get reservations from file
@@ -211,10 +215,10 @@ public class DataStorage
     }
 
     /**
-     * Validates that the inputted username/password combo match an existing account's username/password
+     * Validates that the inputted username/password combo match an guest account's username/password
      *
-     * @param username the username of the account
-     * @param password the password of the account
+     * @param username the username of the guest
+     * @param password the password of the guest
      * @return true if correct username/password combo, false otherwise
      */
     public boolean guestValidate(String username, String password)
@@ -226,6 +230,14 @@ public class DataStorage
         }
         return false;
     }
+
+    /**
+     * Validates that the inputted username/password combo match a manager account's username/password
+     *
+     * @param username the username of the manager
+     * @param password the password of the manager
+     * @return true if correct username/password combo, false otherwise
+     */
     public boolean managerValidate(String username, String password)
     {
         for (Account a : accounts)
@@ -234,6 +246,15 @@ public class DataStorage
                 return true;
         }
         return false;
+    }
+
+    /**
+     * gets the next valid account ID for adding accounts to the database
+     * @return the next valid account ID
+     */
+    public int getAccID()
+    {
+        return accID++;
     }
 
     /**
@@ -271,6 +292,38 @@ public class DataStorage
         }
         accounts.add(newAcc);
         return true;
+    }
+
+    /**
+     * Adds a listener to the DataStorage for MVC architecture
+     * @param c the changeListener to be added
+     */
+    public void addListener(ChangeListener c)
+    {
+        listeners.add(c);
+    }
+
+    /**
+     * Notifies all listeners that the data has been changed
+     */
+    private void notifyListeners()
+    {
+        ChangeEvent change = new ChangeEvent(this);
+        for (ChangeListener c : listeners)
+        {
+            c.stateChanged(change);
+        }
+    }
+
+    /**
+     * Adds a reservation to the account, then notifies all listeners
+     * @param acc the account of the user that created the reservation
+     * @param newRes the reservation for the account
+     */
+    public void addReservationToAccount(Account acc, Reservation newRes)
+    {
+        acc.addReservation(newRes);
+        notifyListeners();
     }
 
     /**
