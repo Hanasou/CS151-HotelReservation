@@ -94,6 +94,15 @@ public class TimeInterval
     }
 
     /**
+     * Calculates the amount of days in the interval, including both endpoints  (ex. Jan 1 - Jan 2 is 2 days)
+     * @return the integer amount of days that have passed
+     */
+    public long amountOfDays()
+    {
+        return endTime.toEpochDay() - startTime.toEpochDay() + 1;
+    }
+
+    /**
      * Provides a format for the time of the event, defaulting to yyyy-MM-dd <BR>
      * For printing a specific format of the date, grab the start or end time and use the format method in LocalDate
      * @return a string containing the start and end times, separated by a hyphen
