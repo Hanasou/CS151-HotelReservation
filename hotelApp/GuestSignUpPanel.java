@@ -1,60 +1,93 @@
 package hotelApp;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 /**
- * Panel that allows a guest to create a new GuestAccount
+ * Panel for having a guest sign in
  * @author
  * Date created: 11/13/2018
  */
-public class GuestSignUpPanel extends JPanel
+public class GuestSignUpPanel extends JFrame
 {
-   //TODO: Make sure when signing up that they must have a unique username!
-	
 	private JTextField username;
 	private JTextField password;
 	private JLabel user;
 	private JLabel pass;
 	private JLabel title;
-	private JButton signUpButton;
-	public static int width = 500;
+	private JButton logInButton;
+	private DataStorage db;
+	private JPanel panel;
 	
-	GuestSignUpPanel()
+	public GuestSignUpPanel(DataStorage db, int width)
 	{
+		this.db = db;
+		setTitle("Guest Login");
+		JTextField name = new JTextField(15);
 		username = new JTextField(15);
 		password = new JTextField(15);
-		title = new JLabel("Guest Sign Up");
+		JLabel namePlate = new JLabel("Name");
 		user = new JLabel("Username");
 		pass = new JLabel("Password");
-		signUpButton = new JButton("Sign Up");
-		add(user);
-		add(pass);
-		add(username);
-		add(password);
-		add(signUpButton);
-		add(title);
+		title = new JLabel("Guest Sign Up");
+		logInButton = new JButton("Sign Up");
+		logInButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String actualName = name.getText();
+				String usern = username.getText();
+				String passw = password.getText();
+				if (db.getAccountByUserName(usern) == null) {
+					db.addAccount(new GuestAccount(actualName, usern, passw, (int) Math.random()));
+					JOptionPane.showMessageDialog(panel, "Account Created. Log in with these credentials.");
+					dispose();
+					GuestSignInPanel signin = new GuestSignInPanel(db, width);
+				}
+				else {
+					JOptionPane.showMessageDialog(panel, "Username already exists. Please try again.");
+				}
+			}
+		});
+
+		panel = new JPanel();
+		panel.setLayout(new FlowLayout());
+		JPanel labelPanel = new JPanel();
+		labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
+		labelPanel.add(Box.createVerticalStrut(10));
+		labelPanel.add(title);
+		labelPanel.add(Box.createVerticalStrut(30));
+		labelPanel.add(namePlate);
+		labelPanel.add(Box.createVerticalStrut(2));
+		labelPanel.add(user);
+		labelPanel.add(Box.createVerticalStrut(2));
+		labelPanel.add(pass);
+		
+		JPanel textFieldPanel = new JPanel();
+		textFieldPanel.setLayout(new BoxLayout(textFieldPanel, BoxLayout.PAGE_AXIS));
+		textFieldPanel.add(Box.createVerticalStrut(90));
+		textFieldPanel.add(name);
+		textFieldPanel.add(username);
+		textFieldPanel.add(Box.createVerticalStrut(0));
+		textFieldPanel.add(password);
+		textFieldPanel.add(Box.createVerticalStrut(0));
+		textFieldPanel.add(logInButton);
+		panel.add(labelPanel);
+		panel.add(textFieldPanel);
+		add(panel);
 //		setLocation(250,250);
 		
-	    setLayout (null); 
 	    
+	    /**
 	    title.setBounds(width/2 - width/12,width/8,150,20);
 	    username.setBounds(width/2 - 75,width/3 - 20,150,20);
 	    password.setBounds(width/2 - 75,width/3 + 20,150,20);
 	    user.setBounds(width/2 - 150,width/3 - 20,150,20);
 	    pass.setBounds(width/2 - 150,width/3 + 20,150,20);
-	    signUpButton.setBounds(width/2 - width/12,width/3 + 60,80,20);
+	    logInButton.setBounds(width/2 - width/12,width/3 + 60,75,20);
+	    */
+	    
+	    setSize(width, width);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	setVisible(true);
 	}
-	
-    public static void main(String[] args)
-    {
-    	//tester
-    	JFrame frame = new JFrame();
-    	GuestSignUpPanel a  = new GuestSignUpPanel();
-
-    	frame.setSize(width, width);
-    	
-    	frame.add(a);
-    	frame.setVisible(true);
-    }
-
 }

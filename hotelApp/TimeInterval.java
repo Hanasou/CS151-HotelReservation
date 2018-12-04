@@ -111,7 +111,7 @@ public class TimeInterval
     {
         return startTime.toString() + " - " + endTime.toString();
     }
-
+  
     @Override
     public boolean equals(Object obj)
     {

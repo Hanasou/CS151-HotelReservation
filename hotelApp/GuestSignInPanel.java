@@ -36,10 +36,39 @@ public class GuestSignInPanel extends JFrame
 				String login = username.getText();
 				String passw = password.getText();
 				if (db.guestValidate(login, passw)) {
-					System.out.println("validated");
+					//System.out.println("validated");
+					//ReservationPanel rp = new ReservationPanel(db.getAccountByUserName(login), db, width);
+					JFrame userAction = new JFrame("Make Reservation, or View/Cancel a Reservation?");
+					JPanel layout = new JPanel(new BorderLayout());
+					JButton makeReservation = new JButton("Make a Reservation");
+					makeReservation.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							dispose();
+							userAction.dispose();
+							ReservationPanel rp = new ReservationPanel(db.getAccountByUserName(login), db);
+						}
+					});
+					JButton viewReservation = new JButton("View/Cancel a Reservation");
+					viewReservation.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							dispose();
+							userAction.dispose();
+							ViewReservationPanel vrp = new ViewReservationPanel(db.getAccountByUserName(login), db);
+						}
+					});
+					JLabel accountAction = new JLabel("Make a reservation or View/Cancel a reservation");
+					
+					layout.add(accountAction, BorderLayout.NORTH);
+					layout.add(makeReservation, BorderLayout.WEST);
+					layout.add(viewReservation, BorderLayout.EAST);
+					userAction.add(layout);
+					
+					userAction.setLayout(new FlowLayout());
+					userAction.pack();
+					userAction.setVisible(true);
 				}
 				else {
-					System.out.println("nope");
+					JOptionPane.showMessageDialog(panel, "Credentials not found. Please try again.");
 				}
 			}
 		});
