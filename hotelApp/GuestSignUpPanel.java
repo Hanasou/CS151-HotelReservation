@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 /**
  * Panel for having a guest sign in
- * @author
+ * @author Roy Zhang
  * Date created: 11/13/2018
  */
 public class GuestSignUpPanel extends JFrame
@@ -19,6 +19,7 @@ public class GuestSignUpPanel extends JFrame
 	private JButton logInButton;
 	private DataStorage db;
 	private JPanel panel;
+	private JButton backButton;
 	
 	public GuestSignUpPanel(DataStorage db, int width)
 	{
@@ -48,12 +49,22 @@ public class GuestSignUpPanel extends JFrame
 				}
 			}
 		});
+		backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				dispose();
+				AccountSelectionPanel accSel = new AccountSelectionPanel(db, width);
+			}
+		});
 
 		panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		JPanel labelPanel = new JPanel();
 		labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
-		labelPanel.add(Box.createVerticalStrut(10));
+		labelPanel.add(Box.createVerticalStrut(0));
 		labelPanel.add(title);
 		labelPanel.add(Box.createVerticalStrut(30));
 		labelPanel.add(namePlate);
@@ -64,13 +75,14 @@ public class GuestSignUpPanel extends JFrame
 		
 		JPanel textFieldPanel = new JPanel();
 		textFieldPanel.setLayout(new BoxLayout(textFieldPanel, BoxLayout.PAGE_AXIS));
-		textFieldPanel.add(Box.createVerticalStrut(90));
+		textFieldPanel.add(Box.createVerticalStrut(100));
 		textFieldPanel.add(name);
 		textFieldPanel.add(username);
 		textFieldPanel.add(Box.createVerticalStrut(0));
 		textFieldPanel.add(password);
 		textFieldPanel.add(Box.createVerticalStrut(0));
 		textFieldPanel.add(logInButton);
+		textFieldPanel.add(backButton);
 		panel.add(labelPanel);
 		panel.add(textFieldPanel);
 		add(panel);
