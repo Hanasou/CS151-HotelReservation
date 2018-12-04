@@ -3,7 +3,11 @@ package hotelApp;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * Frame for viewing reservations made on an account. Guest inputs the reservation to delete it.
+ * @author Roy
+ *
+ */
 public class ViewReservationPanel extends JFrame {
 
 	private DataStorage db;

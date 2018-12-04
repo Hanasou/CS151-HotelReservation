@@ -15,14 +15,6 @@ public class Room
     	this.price = p;
     }
 
-    @Override
-    public boolean equals(Object r) {
-    	Room that = (Room) r;
-    	if (this.number == that.number) {
-    		return true;
-    	}
-    	return false;
-    }
     public int getRoomNumber()
     {
         return number;

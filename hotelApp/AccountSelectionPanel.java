@@ -6,7 +6,7 @@ import javax.swing.*;
 
 /**
  * Panel that allows selection between guest and manager accounts
- * @author
+ * @author Roy Zhang
  * Date created: 11/13/2018
  */
 public class AccountSelectionPanel extends JFrame

@@ -3,16 +3,18 @@ package hotelApp;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Panel that displays Reservations for the manager
- * @author
+ * @author Roy Zhang
  * Date created: 11/13/2018
  */
 public class ReservationPanel extends JFrame
 {
-	Account acc;
-	DataStorage db;
+	private Account acc;
+	private DataStorage db;
+	private static DateTimeFormatter date_format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	
 	public ReservationPanel (Account acc, DataStorage db) {
 		this.acc = acc;
