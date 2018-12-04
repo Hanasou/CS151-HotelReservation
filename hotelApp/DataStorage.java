@@ -55,8 +55,8 @@ public class DataStorage
         rooms.add(new Room(580, 300));
         rooms.add(new Room(590, 300));
 
-        reservationFile = new File("src/hotelApp/reservations.txt");
-        accountFile = new File("src/hotelApp/accounts.txt");
+        reservationFile = new File("hotelApp/reservations.txt");
+        accountFile = new File("hotelApp/accounts.txt");
 
         populateFromFile();
     }

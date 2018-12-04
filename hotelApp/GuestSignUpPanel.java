@@ -57,14 +57,4 @@ public class GuestSignUpPanel extends JPanel
     	frame.setVisible(true);
     }
 
-
-    	frame.setSize(width, width);
-    	
-    	frame.add(a);
-    	frame.setVisible(true);
-    	
-    	
-    	
-    }
-
 }
