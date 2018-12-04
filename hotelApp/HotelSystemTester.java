@@ -20,9 +20,11 @@ public class HotelSystemTester
     {
     	DataStorage db = new DataStorage();
     	db.addAccount(new GuestAccount("jim", "jim123", "swordfish", 99231));
-    	db.addAccount(new ManagerAccount("jim", "sam", "swordfish", 99230));
-    	AccountSelectionPanel a = new AccountSelectionPanel(db, 300);
-    	//GuestSignInPanel b  = new GuestSignInPanel(db, width);
+    	db.addAccount(new ManagerAccount("jim", "james123", "swordfish", 99230));
+    	//ReservationPanel rp = new ReservationPanel(db.getAccountByUserName("jim123"), db);
+    	//ViewReservationPanel vrp = new ViewReservationPanel(db.getAccountByUserName("SteveS"), db);
+    	//AccountSelectionPanel a = new AccountSelectionPanel(db, 300);
+    	GuestSignInPanel b  = new GuestSignInPanel(db, width);
     	
     }
 }

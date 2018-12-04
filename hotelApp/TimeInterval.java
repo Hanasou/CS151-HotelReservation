@@ -112,4 +112,12 @@ public class TimeInterval
     {
         return startTime.toString() + " - " + endTime.toString();
     }
+    @Override
+    public boolean equals(Object t) {
+    	TimeInterval that = (TimeInterval) t;
+    	if (this.startTime.equals(that.startTime) && this.endTime.equals(that.endTime)) {
+    		return true;
+    	}
+    	return false;
+    }
 }

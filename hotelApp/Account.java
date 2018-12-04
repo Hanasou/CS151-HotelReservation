@@ -89,4 +89,7 @@ public abstract class Account implements Comparable
     {
         return reservations;
     }
+    public void cancelReservation(Reservation r) {
+    	reservations.remove(r);
+    }
 }
