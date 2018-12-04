@@ -17,10 +17,6 @@ public class HotelSystemTester
 
     public static void main(String[] args)
     {
-        DataStorage db = new DataStorage();
-        ArrayList<Room> rooms = db.getAvailableRooms(new TimeInterval(LocalDate.of(2018,11,1), LocalDate.of(2018,12,31)), 0);
 
-        for (Room r : rooms)
-            System.out.println(r);
     }
 }

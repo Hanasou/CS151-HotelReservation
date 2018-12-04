@@ -37,6 +37,9 @@ public class Reservation
     {
         return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time;
     }
+    public String stringView() {
+    	return room.getRoomNumber() + " " + time;
+    }
 
     public boolean equals(Object other)
     {
