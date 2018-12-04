@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="afab19cd-5923-4718-b901-b0561ad5709e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/ComprehensiveReceipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/ComprehensiveReceipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/DataStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/DataStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/GuestSignInPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/GuestSignInPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/HotelSystemTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/HotelSystemTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/ManagerSignInPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/ManagerSignInPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/SimpleReceipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/SimpleReceipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/TimeInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/TimeInterval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelApp/reservations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hotelApp/reservations.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hotelApp/HotelSystemTester.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="424">
-              <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hotelApp/DataStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="337" column="13" lean-forward="true" selection-start-line="337" selection-start-column="13" selection-end-line="337" selection-end-column="13" />
+            <state relative-caret-position="-64">
+              <caret line="332" column="50" selection-start-line="332" selection-start-column="50" selection-end-line="332" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7932#7933#0" expanded="true" />
@@ -182,8 +171,8 @@
         <option value="$PROJECT_DIR$/hotelApp/Account.java" />
         <option value="$PROJECT_DIR$/hotelApp/Room.java" />
         <option value="$PROJECT_DIR$/hotelApp/TimeInterval.java" />
-        <option value="$PROJECT_DIR$/hotelApp/DataStorage.java" />
         <option value="$PROJECT_DIR$/hotelApp/HotelSystemTester.java" />
+        <option value="$PROJECT_DIR$/hotelApp/DataStorage.java" />
       </list>
     </option>
   </component>
@@ -221,7 +210,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543895223954" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543895344254" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -317,7 +306,7 @@
       <workItem from="1543353762518" duration="302000" />
       <workItem from="1543354150583" duration="231000" />
       <workItem from="1543617047559" duration="901000" />
-      <workItem from="1543806457064" duration="8442000" />
+      <workItem from="1543806457064" duration="8714000" />
     </task>
     <task id="LOCAL-00001" summary="Created and tested almost all methods in DataStorage. Adjusted toStrings of Room, TimeInterval, and Account to be more helpful. Filled text files with dummy accounts and reservations">
       <created>1542871197010</created>
@@ -347,11 +336,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543891047250</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added start of backButtons to signInPanels, Added equals to TimeInterval, Room, and Account, and added deleteReservation to dataStorage">
+      <created>1543895251013</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543895251013</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33101000" />
+    <option name="totallyTimeSpent" value="33373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,7 +362,7 @@
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49203822" visible="true" weight="0.2765568" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49203822" visible="true" weight="0.2765568" />
       <window_info id="Structure" order="1" sideWeight="0.5079618" side_tool="true" weight="0.2765568" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -375,7 +371,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5058824" side_tool="true" weight="0.27045178" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32834226" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32834226" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989305" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -441,7 +437,8 @@
     <MESSAGE value="Small bugfix in GetAvailableRooms, fixed typo" />
     <MESSAGE value="Updated DataStorage to include parts of MVC" />
     <MESSAGE value="Added Receipt implementation, updated DataStorage to correctly get file and added TimeInterval method to determine amount of days" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Receipt implementation, updated DataStorage to correctly get file and added TimeInterval method to determine amount of days" />
+    <MESSAGE value="Added start of backButtons to signInPanels, Added equals to TimeInterval, Room, and Account, and added deleteReservation to dataStorage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added start of backButtons to signInPanels, Added equals to TimeInterval, Room, and Account, and added deleteReservation to dataStorage" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
@@ -597,20 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hotelApp/DataStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="337" column="13" lean-forward="true" selection-start-line="337" selection-start-column="13" selection-end-line="337" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7932#7933#0" expanded="true" />
-            <element signature="e#7960#7961#0" expanded="true" />
-            <element signature="e#8889#8890#0" expanded="true" />
-            <element signature="e#8919#8920#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hotelApp/Reservation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
@@ -627,9 +610,23 @@
     <entry file="file://$PROJECT_DIR$/hotelApp/HotelSystemTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
-          <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hotelApp/DataStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret line="332" column="50" selection-start-line="332" selection-start-column="50" selection-end-line="332" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7932#7933#0" expanded="true" />
+            <element signature="e#7960#7961#0" expanded="true" />
+            <element signature="e#8889#8890#0" expanded="true" />
+            <element signature="e#8919#8920#0" expanded="true" />
           </folding>
         </state>
       </provider>

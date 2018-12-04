@@ -54,14 +54,6 @@ public abstract class Account implements Comparable
         reservations.add(r);
     }
 
-    //TODO: Decide on what parameter to pass in
-    /*
-    public boolean removeReservation(? ?)
-    {
-
-    }
-    */
-
     @Override
     public boolean equals(Object that)
     {
