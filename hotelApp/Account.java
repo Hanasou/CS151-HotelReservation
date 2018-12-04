@@ -31,17 +31,20 @@ public abstract class Account implements Comparable
     @Override
     public int compareTo(Object other)
     {
-        Account that = (Account) other;
-        int nameComp = name.compareTo(that.name);
-        if (nameComp != 0)
+        if (other instanceof Account)
         {
-            return nameComp;
+            Account that = (Account) other;
+            int nameComp = name.compareTo(that.name);
+            if (nameComp != 0)
+            {
+                return nameComp;
 
-        }
-        int unComp = username.compareTo(that.username);
-        if (unComp != 0)
-        {
-           return unComp;
+            }
+            int unComp = username.compareTo(that.username);
+            if (unComp != 0)
+            {
+                return unComp;
+            }
         }
         return 0;
     }

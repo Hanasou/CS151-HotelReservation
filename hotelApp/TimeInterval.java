@@ -1,7 +1,6 @@
 package hotelApp;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Class that represents an interval of time. Keeps two LocalDateTime objects and assumes the event exists.
@@ -111,5 +110,16 @@ public class TimeInterval
     public String toString()
     {
         return startTime.toString() + " - " + endTime.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof TimeInterval)
+        {
+            TimeInterval that = (TimeInterval) obj;
+            return startTime.equals(that.startTime) && endTime.equals(that.endTime);
+        }
+        return false;
     }
 }

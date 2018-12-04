@@ -327,6 +327,27 @@ public class DataStorage
     }
 
     /**
+     * Deletes a reservation given an account and a reservation
+     * @param acc the account for which the reservation is attached to
+     * @param resToDelete a reservation with all the matching information
+     * @return true if successful, false otherwise
+     */
+    public boolean deleteReservationFromAccount(Account acc, Reservation resToDelete)
+    {
+        ArrayList<Reservation> reservations = acc.getReservations();
+        for (int i = 0; i < reservations.size(); i++)
+        {
+            if (resToDelete.equals(reservations.get(i)))
+            {
+                acc.getReservations().remove(i);
+                notifyListeners();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Gets a list of rooms that are not occupied during the TimeInterval passed in
      *
      * @param duration the TimeInterval of which the room needs to be available

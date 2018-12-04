@@ -19,6 +19,7 @@ public class ManagerSignInPanel extends JFrame
 	private JLabel pass;
 	private JLabel title;
 	private JButton logInButton;
+	private JButton backButton;
 	private DataStorage db;
 	private JPanel panel;
 	
@@ -42,6 +43,18 @@ public class ManagerSignInPanel extends JFrame
 				else {
 					System.out.println("nope");
 				}
+			}
+		});
+
+		//TODO: Add this button to frame
+		backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				dispose();
+				AccountSelectionPanel accSel = new AccountSelectionPanel(db, width);
 			}
 		});
 

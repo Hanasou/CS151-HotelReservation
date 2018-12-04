@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class SimpleReceipt implements Receipt
 {
-    Account account;
-    ArrayList<Reservation> reservations;
+    private Account account;
+    private ArrayList<Reservation> reservations;
 
     public SimpleReceipt(Account a, ArrayList<Reservation> res)
     {
@@ -33,7 +33,7 @@ public class SimpleReceipt implements Receipt
         {
             long dayAmt = r.getTime().amountOfDays();
             double cost = r.getRoom().getPrice()*dayAmt;
-            list.append(r.getTime().toString() + ", Room " + r.getRoom().getRoomNumber() + " Cost:  " + cost + "\n");
+            list.append(r.getTime().toString() + ", Room " + r.getRoom().getRoomNumber() + ". Cost:  " + cost + "\n");
             totalCost += cost;
         }
         list.append("Total cost: " + totalCost);

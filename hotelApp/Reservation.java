@@ -38,4 +38,14 @@ public class Reservation
         return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time;
     }
 
+    public boolean equals(Object other)
+    {
+        if (other instanceof Reservation)
+        {
+            Reservation that = (Reservation) other;
+            return attachedAccount.equals(that.attachedAccount) && room.equals(that.room) && time.equals(that.time);
+        }
+        return false;
+    }
+
 }
