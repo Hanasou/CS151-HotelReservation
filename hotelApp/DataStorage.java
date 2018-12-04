@@ -351,12 +351,32 @@ public class DataStorage
      * Gets a list of rooms that are not occupied during the TimeInterval passed in
      *
      * @param duration the TimeInterval of which the room needs to be available
+     * @param roomPrice the price of the rooms to get, will get all rooms if an invalid price is selected
      * @return a list of rooms that are free for the entire duration
      */
-    public ArrayList<Room> getAvailableRooms(TimeInterval duration)
+
+    public ArrayList<Room> getAvailableRooms(TimeInterval duration, int roomPrice)
     {
-        //TODO: MAKE SURE TO TEST
-    	ArrayList<Room> available = new ArrayList<>(rooms);
+        ArrayList<Room> available = new ArrayList<>();
+        if (roomPrice == 100)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                available.add(rooms.get(i));
+            }
+        }
+        else if (roomPrice == 300)
+        {
+            for (int i = 10; i < 20; i++)
+            {
+                available.add(rooms.get(i));
+            }
+        }
+        else
+        {
+            available.addAll(rooms);
+        }
+
         for (Account a : accounts)
         {
             for (Reservation r : a.getReservations())

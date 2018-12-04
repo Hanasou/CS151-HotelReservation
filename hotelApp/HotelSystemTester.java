@@ -3,7 +3,6 @@ package hotelApp;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javax.naming.spi.ResolveResult;
 import javax.swing.*;
 
 /**
@@ -18,7 +17,6 @@ public class HotelSystemTester
 
     public static void main(String[] args)
     {
-    	DataStorage db = new DataStorage();
-    	GuestSignUpPanel gsp = new GuestSignUpPanel(db, 500);
+
     }
 }
