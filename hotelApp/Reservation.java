@@ -49,4 +49,14 @@ public class Reservation
     	return room + " " + time;
     }
 
+    public boolean equals(Object other)
+    {
+        if (other instanceof Reservation)
+        {
+            Reservation that = (Reservation) other;
+            return attachedAccount.equals(that.attachedAccount) && room.equals(that.room) && time.equals(that.time);
+        }
+        return false;
+    }
+
 }

@@ -7,7 +7,7 @@ package hotelApp;
  */
 public class ComprehensiveReceipt implements Receipt
 {
-    Account account;
+    private Account account;
 
     public ComprehensiveReceipt(Account a)
     {
@@ -29,7 +29,7 @@ public class ComprehensiveReceipt implements Receipt
         {
             long dayAmt = r.getTime().amountOfDays();
             double cost = r.getRoom().getPrice()*dayAmt;
-            list.append(r.getTime().toString() + ", Room " + r.getRoom().getRoomNumber() + " Cost:  " + cost + "\n");
+            list.append(r.getTime().toString() + ", Room " + r.getRoom().getRoomNumber() + ". Cost:  " + cost + "\n");
             totalCost += cost;
         }
         list.append("Total cost: " + totalCost);

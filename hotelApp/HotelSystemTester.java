@@ -1,8 +1,9 @@
 package hotelApp;
 
 import java.awt.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
-
+import javax.naming.spi.ResolveResult;
 import javax.swing.*;
 
 /**
@@ -14,17 +15,8 @@ import javax.swing.*;
  */
 public class HotelSystemTester
 {
-	public static int width = 500;
-	
+
     public static void main(String[] args)
     {
-    	DataStorage db = new DataStorage();
-    	db.addAccount(new GuestAccount("jim", "jim123", "swordfish", 99231));
-    	db.addAccount(new ManagerAccount("jim", "james123", "swordfish", 99230));
-    	//ReservationPanel rp = new ReservationPanel(db.getAccountByUserName("jim123"), db);
-    	//ViewReservationPanel vrp = new ViewReservationPanel(db.getAccountByUserName("SteveS"), db);
-    	//AccountSelectionPanel a = new AccountSelectionPanel(db, 300);
-    	GuestSignInPanel b  = new GuestSignInPanel(db, width);
-    	
     }
 }

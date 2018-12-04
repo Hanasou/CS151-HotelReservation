@@ -2,7 +2,7 @@ package hotelApp;
 
 /**
  * Class that contains information related to the room, such as a number and price
- * @author
+ * @author Nicholas Papano
  * Date created: 11/13/2018
  */
 public class Room
@@ -36,5 +36,16 @@ public class Room
     public String toString()
     {
         return "Room: " + number + " Price: $" + price;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+       if (obj instanceof Room)
+       {
+           Room that = (Room) obj;
+           return number == that.number && price == that.price;
+       }
+       return false;
     }
 }
