@@ -44,7 +44,6 @@ public class GuestSignInPanel extends JFrame
 					makeReservation.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							dispose();
-							userAction.dispose();
 							ReservationPanel rp = new ReservationPanel(db.getAccountByUserName(login), db);
 						}
 					});
@@ -52,7 +51,6 @@ public class GuestSignInPanel extends JFrame
 					viewReservation.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							dispose();
-							userAction.dispose();
 							ViewReservationPanel vrp = new ViewReservationPanel(db.getAccountByUserName(login), db);
 						}
 					});
@@ -65,6 +63,7 @@ public class GuestSignInPanel extends JFrame
 					
 					userAction.setLayout(new FlowLayout());
 					userAction.pack();
+					userAction.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					userAction.setVisible(true);
 				}
 				else {

@@ -17,6 +17,9 @@ public class HotelSystemTester
 
     public static void main(String[] args)
     {
-
+    	DataStorage db = new DataStorage();
+    	Account jim = new GuestAccount("jim", "jim", "swordfish", 49492);
+    	db.addAccount(jim);
+    	GuestSignInPanel gsp = new GuestSignInPanel(db, 300);
     }
 }

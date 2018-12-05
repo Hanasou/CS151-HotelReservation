@@ -27,6 +27,27 @@ public class ViewReservationPanel extends JFrame {
 		for (Reservation r : acc.getReservations()) {
 			reservations.append(r.stringView() + "\n");
 		}
+		
+		delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Reservation deleteMe = null;
+				for (Reservation r : acc.getReservations()) {
+					if (insertReservation.getText().equals(r.stringView())) {
+						deleteMe = r;
+					}
+				}
+				db.deleteReservationFromAccount(acc, deleteMe);
+				reservations.setText("Current Reservations" + "\n");
+				for (Reservation r : acc.getReservations()) {
+					reservations.append(r.stringView() + "\n");
+				}
+			}
+		});
+		goBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		panel.add(label);
 		panel.add(reservations);
 		panel.add(insertReservation);
