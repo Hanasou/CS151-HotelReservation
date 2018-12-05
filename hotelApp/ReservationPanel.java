@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 /**
@@ -54,16 +55,22 @@ public class ReservationPanel extends JFrame
 		
 		JPanel finalPanel = new JPanel();
 		showAvailableRooms.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) throws DateTimeParseException{
+				try {
 				TimeInterval ti = new TimeInterval(LocalDate.parse(checkinField.getText(), date_format) , LocalDate.parse(checkoutField.getText(), date_format));
 				availableRooms.append(" " + checkinField.getText() + " - " + checkoutField.getText() + "\n");
 				for (Room r : db.getAvailableRooms(ti, price)) {
 					availableRooms.append(r.toString() + "\n");
 				}
+				}
+				catch (DateTimeParseException dtpe) {
+					JOptionPane.showMessageDialog(roomSelection, "Checkin and Checkout dates must be in MM/DD/YYYY");
+				}
 			}
 		});
 		confirm.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) throws DateTimeParseException {
+				try {
 				TimeInterval ti = new TimeInterval(LocalDate.parse(checkinField.getText(), date_format) , LocalDate.parse(checkoutField.getText(), date_format));
 				ArrayList<Room> availableRooms = new ArrayList<Room>();
 				availableRooms = db.getAvailableRooms(ti, price);
@@ -82,6 +89,10 @@ public class ReservationPanel extends JFrame
 				db.addReservationToAccount(acc, confirm);
 				reservations.add(confirm);
 				JOptionPane.showMessageDialog(roomAvailability, confirm.toString() + "\n" + "Reservation Confirmed");
+				}
+				}
+				catch (DateTimeParseException dtpe) {
+					JOptionPane.showMessageDialog(roomAvailability, "Checkin and Checkout dates must be in MM/DD/YYYY");
 				}
 			}
 		});
