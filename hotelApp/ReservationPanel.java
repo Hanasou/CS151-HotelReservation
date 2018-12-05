@@ -110,6 +110,7 @@ public class ReservationPanel extends JFrame
 						JPanel panel = new JPanel();
 						JTextArea receiptArea = new JTextArea(15,10);
 						receiptArea.setText(simple.receiptList());
+						receiptArea.setEditable(false);
 						panel.add(receiptArea);
 						receipt.add(panel);
 						receipt.pack();
@@ -125,6 +126,7 @@ public class ReservationPanel extends JFrame
 						JPanel panel = new JPanel();
 						JTextArea receiptArea = new JTextArea(15,10);
 						receiptArea.setText(comprehensive.receiptList());
+						receiptArea.setEditable(false);
 						panel.add(receiptArea);
 						receipt.add(panel);
 						receipt.pack();
