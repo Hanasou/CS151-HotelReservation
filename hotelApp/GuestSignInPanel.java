@@ -65,6 +65,7 @@ public class GuestSignInPanel extends JFrame
 					
 					userAction.setLayout(new FlowLayout());
 					userAction.pack();
+					userAction.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					userAction.setVisible(true);
 				}
 				else {
