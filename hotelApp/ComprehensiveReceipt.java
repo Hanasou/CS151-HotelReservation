@@ -32,7 +32,7 @@ public class ComprehensiveReceipt implements Receipt
             list.append(r.getTime().toString() + ", Room " + r.getRoom().getRoomNumber() + ". Cost:  " + cost + "\n");
             totalCost += cost;
         }
-        list.append("Total cost: " + totalCost);
+        list.append("Total cost: $" + totalCost);
         return list.toString();
     }
 }
