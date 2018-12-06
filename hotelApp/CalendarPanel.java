@@ -65,17 +65,19 @@ public class CalendarPanel extends JPanel {
 		for (JButton b : buttons) {
 			b.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					ArrayList<Room> availableRooms = new ArrayList<Room>();
+					ArrayList<Room> reservedRooms = new ArrayList<Room>(db.getRooms());
 					if (checkDate(b.getText())) {
+						rooms.setText("");
 						TimeInterval ti = new TimeInterval(date.withDayOfMonth(Integer.parseInt(b.getText())), date.withDayOfMonth(Integer.parseInt(b.getText())));
-						ArrayList<Room> availableRooms = db.getAvailableRooms(ti, 0);
-						ArrayList<Room> unavailableRooms = db.getRooms();
-						unavailableRooms.removeAll(availableRooms);
+						availableRooms = db.getAvailableRooms(ti, 0);
+						reservedRooms.removeAll(availableRooms);
 						rooms.setText("Available Rooms: " + "\n");
 						for (Room r: availableRooms) {
 							rooms.append(r.getRoomNumber() + "\n");
 						}
 						rooms.append("Reserved Rooms: " + "\n");
-						for (Room r: unavailableRooms) {
+						for (Room r: reservedRooms) {
 							rooms.append(r.getRoomNumber() + "\n");
 						}
 					}
