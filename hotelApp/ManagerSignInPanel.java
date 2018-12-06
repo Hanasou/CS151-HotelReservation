@@ -22,7 +22,11 @@ public class ManagerSignInPanel extends JFrame
 	private JButton backButton;
 	private DataStorage db;
 	private JPanel panel;
-	
+    /**
+ 	 *Constructs a sign in panel
+ 	 *@param db the data storage
+ 	 *@param width the width of panel
+ 	 */
 	public ManagerSignInPanel(DataStorage db, int width)
 	{
 		this.db = db;
@@ -77,6 +81,7 @@ public class ManagerSignInPanel extends JFrame
 		textFieldPanel.add(password);
 		textFieldPanel.add(Box.createVerticalStrut(0));
 		textFieldPanel.add(logInButton);
+		textFieldPanel.add(backButton);
 		panel.add(labelPanel);
 		panel.add(textFieldPanel);
 		add(panel);

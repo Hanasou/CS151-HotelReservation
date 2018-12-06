@@ -14,7 +14,11 @@ public class AccountSelectionPanel extends JFrame
 
 	private JButton guest;
 	private JButton manager;
-	
+    /**
+     * Constructs an account.
+     * @param db the database
+ 	 * @param width the measurement of width
+     */
 	
 	public AccountSelectionPanel(DataStorage db, int width)
 	{

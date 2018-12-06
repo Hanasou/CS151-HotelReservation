@@ -21,6 +21,11 @@ public class ReservationPanel extends JFrame
 	private static DateTimeFormatter date_format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	private ArrayList<Reservation> reservations;
 	
+    /**
+ 	 *Constructs a Reservation panel
+ 	 *@param acc the account
+ 	 *@param db the data storage
+ 	 */
 	public ReservationPanel (Account acc, DataStorage db) {
 		this.acc = acc;
 		this.db = db;

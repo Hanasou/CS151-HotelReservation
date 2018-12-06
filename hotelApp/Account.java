@@ -14,6 +14,14 @@ public abstract class Account implements Comparable
     private int accID;
     private ArrayList<Reservation> reservations;
     
+    /**
+ 	 *Constructs an account.
+ 	 *@param name the account owner
+ 	 *@param username the user id
+ 	 *@param password the pass id
+ 	 *@param isManager the manager key
+ 	 *@param accountID the id of account
+    */
     public Account (String name, String username, String password, boolean isManager, int accountID) {
     	this.name = name;
     	this.username = username;
@@ -27,6 +35,7 @@ public abstract class Account implements Comparable
     /**
      * CompareTo method to satisfy Comparable interface implementation
      * Compares fist by name, then by username
+     * @param other
      */
     @Override
     public int compareTo(Object other)
@@ -48,7 +57,10 @@ public abstract class Account implements Comparable
         }
         return 0;
     }
-
+    /**
+     * addReservation method to add reservations
+     * @param other
+     */
     public void addReservation(Reservation r)
     {
         reservations.add(r);
@@ -66,24 +78,41 @@ public abstract class Account implements Comparable
 
         return "name: " + name +  " username: " + username + " manager: " + isManager + " account ID: " + accID;
     }
-
+    /**
+     * @return isManager
+     */
     public boolean isManager()
     {
         return isManager;
-    }
+    }    
+    /**
+     * @return username
+     */
     public String getUsername() {
     	return username;
     }
+    /**
+     * @return password
+     */
     public String getPassword() {
     	return password;
     }
+    /**
+     * @return name
+     */
     public String getName() {
     	return name;
     }
+    /**
+     * @return reservations
+     */
     public ArrayList<Reservation> getReservations()
     {
         return reservations;
     }
+    /**
+     * @param r the removed reservation
+     */
     public void cancelReservation(Reservation r) {
     	reservations.remove(r);
     }
