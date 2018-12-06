@@ -4,7 +4,7 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.*;
-
+import java.time.LocalDate;
 /**
  * Tester class where any testing can be done to confirm code is working.
  * Final implementation of project will be in HotelSystem
@@ -18,8 +18,12 @@ public class HotelSystemTester
     public static void main(String[] args)
     {
     	DataStorage db = new DataStorage();
-    	Account jim = new GuestAccount("jim", "jim", "swordfish", 49492);
-    	db.addAccount(jim);
-    	GuestSignInPanel gsp = new GuestSignInPanel(db, 300);
+    	CalendarPanel cp = new CalendarPanel(db);
+    	JFrame frame = new JFrame();
+    	frame.add(cp);
+    	
+    	frame.pack();
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setVisible(true);
     }
 }
