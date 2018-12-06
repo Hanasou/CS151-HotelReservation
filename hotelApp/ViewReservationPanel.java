@@ -51,6 +51,7 @@ public class ViewReservationPanel extends JFrame {
 		goBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				AccountSelectionPanel asp = new AccountSelectionPanel(db, 500);
 			}
 		});
 		panel.add(label);

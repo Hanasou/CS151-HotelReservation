@@ -46,7 +46,7 @@ public class ReservationPanel extends JFrame
 		JButton showAvailableRooms = new JButton("Show Available Rooms");
 		JPanel roomAvailability = new JPanel();
 		roomAvailability.setLayout(new BoxLayout(roomAvailability, BoxLayout.PAGE_AXIS));
-		JTextArea availableRooms = new JTextArea("Available Rooms", 10, 15);
+		JTextArea availableRooms = new JTextArea(10, 15);
 		JScrollPane scroll = new JScrollPane(availableRooms);
 		JTextField insertRoomNumber = new JTextField(15);
 		JButton confirm = new JButton("Confirm");
@@ -57,8 +57,9 @@ public class ReservationPanel extends JFrame
 		showAvailableRooms.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) throws DateTimeParseException{
 				try {
+				availableRooms.setText("");
 				TimeInterval ti = new TimeInterval(LocalDate.parse(checkinField.getText(), date_format) , LocalDate.parse(checkoutField.getText(), date_format));
-				availableRooms.append(" " + checkinField.getText() + " - " + checkoutField.getText() + "\n");
+				availableRooms.append("Available Rooms: " + checkinField.getText() + " - " + checkoutField.getText() + "\n");
 				for (Room r : db.getAvailableRooms(ti, price)) {
 					availableRooms.append(r.toString() + "\n");
 				}
@@ -83,6 +84,12 @@ public class ReservationPanel extends JFrame
 				}
 				if (room == null) {
 					JOptionPane.showMessageDialog(roomAvailability, "Invalid Room! Please try again.");
+				}
+				else if (ti.amountOfDays() > 60) {
+					JOptionPane.showMessageDialog(roomAvailability, "Length of reservation cannot be longer than 60 nights!");
+				}
+				else if (ti.getStartTime().compareTo(LocalDate.now()) < 1 || ti.getEndTime().compareTo(LocalDate.now()) < 1) {
+					JOptionPane.showMessageDialog(roomAvailability, "You can't reserve a room in the past. Sorry bud.");
 				}
 				else {
 				Reservation confirm = new Reservation(acc, room, ti);
@@ -139,9 +146,11 @@ public class ReservationPanel extends JFrame
 				layout.add(simple, BorderLayout.WEST);
 				layout.add(comprehensive, BorderLayout.EAST);
 				guestAction.add(layout);
+				AccountSelectionPanel asp = new AccountSelectionPanel(db, 500);
 				guestAction.setLayout(new FlowLayout());
 				guestAction.pack();
 				guestAction.setVisible(true);
+				
 			}
 		});
 		//roomSelection.add(Box.createHorizontalStrut(10));
