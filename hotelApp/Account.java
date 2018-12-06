@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class that contains the information regarding any individual account
- * @author
+ * @author Nicholas Papano
  * Date created: 11/13/2018
  */
 public abstract class Account implements Comparable
