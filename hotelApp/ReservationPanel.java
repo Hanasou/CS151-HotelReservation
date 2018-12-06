@@ -111,7 +111,7 @@ public class ReservationPanel extends JFrame
 				Reservation confirm = new Reservation(acc, room, ti);
 				db.addReservationToAccount(acc, confirm);
 				reservations.add(confirm);
-				JOptionPane.showMessageDialog(roomAvailability, confirm.stringView() + "\n" + "Reservation Confirmed");
+				JOptionPane.showMessageDialog(roomAvailability, confirm.toStringShort() + "\n" + "Reservation Confirmed");
 				}
 				}
 				catch (DateTimeParseException dtpe) {
@@ -196,7 +196,11 @@ public class ReservationPanel extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	setVisible(true);
 	}
-	
+
+	/**
+	 * Returns the price currently selected
+	 * @return the price
+	 */
 	public int getPrice() {
 		return price;
 	}

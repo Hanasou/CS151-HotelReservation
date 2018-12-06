@@ -252,7 +252,7 @@ public class DataStorage
      * gets the next valid account ID for adding accounts to the database
      * @return the next valid account ID
      */
-    public int getAccID()
+    public int getNextAccID()
     {
         return accID++;
     }

@@ -6,12 +6,21 @@ import java.time.LocalDate;
 import java.util.*;
 import javax.swing.*;
 
+/**
+ * Panel that displays a calendar for selecting dates from
+ * @author Roy Zhang
+ * Date created: 12/03/2018
+ */
 public class CalendarPanel extends JPanel {
 
 	private DataStorage db;
-	LocalDate date;
-	ArrayList<JButton> buttons;
-	
+	private LocalDate date;
+	private ArrayList<JButton> buttons;
+
+	/**
+	 * Constructs a CalendarPanel given the DataStorage where all the hotel information is stored
+	 * @param db the DataStorage containing all hotel information
+	 */
 	public CalendarPanel(DataStorage db) {
 		this.db = db;
 		this.date = LocalDate.now();
@@ -95,7 +104,10 @@ public class CalendarPanel extends JPanel {
 		add(calendarArea);
 		add(roomArea);
 	}
-	
+
+	/**
+	 * Refreshes the buttons that make up the calendar when the month is changed
+	 */
 	public void refresh() {
 		int firstDayOfWeek = date.withDayOfMonth(1).getDayOfWeek().getValue();
 		int lastDay = date.withDayOfMonth(date.lengthOfMonth()).getDayOfMonth();
@@ -110,8 +122,13 @@ public class CalendarPanel extends JPanel {
 			}
 		}
 	}
-	
-	public boolean checkDate(String s) throws NumberFormatException {
+
+	/**
+	 * Checks the string to see if the string can be parsed to an int
+	 * @param s the String representation of the int
+	 * @return true if successful, false otherwise
+	 */
+	public boolean checkDate(String s) {
 		try {
 			Integer.parseInt(s);
 			return true;
