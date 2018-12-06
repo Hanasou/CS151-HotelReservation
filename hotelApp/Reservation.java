@@ -17,30 +17,43 @@ public class Reservation
     	this.room = r;
     	this.time = t;
     }
-
+    /**
+ 	* @return attachedAccount
+ 	*/
     public Account getAttachedAccount()
     {
         return attachedAccount;
     }
-
+    /**
+     * @return room
+     */
     public Room getRoom()
     {
         return room;
     }
-
+    /**
+     * @return time
+     */
     public TimeInterval getTime()
     {
         return time;
     }
-
+    /**
+     * @return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time
+     */
     public String toString()
     {
         return "Attached account username: " + attachedAccount.getUsername() + " room: " + room + " time: " + time;
     }
+    /**
+     * @return room.getRoomNumber() + " " + time
+     */
     public String stringView() {
     	return room.getRoomNumber() + " " + time;
     }
-
+    /**
+     * @param other
+     */
     public boolean equals(Object other)
     {
         if (other instanceof Reservation)

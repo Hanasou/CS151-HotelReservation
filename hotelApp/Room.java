@@ -9,22 +9,31 @@ public class Room
 {
     private int number;
     private double price;
-    
+    /**
+     * @param n the number
+     * @param p the price
+     */
     public Room (int n, double p) {
     	this.number = n;
     	this.price = p;
     }
-
+    /**
+     * @return number
+     */
     public int getRoomNumber()
     {
         return number;
     }
-
+    /**
+     * @return price
+     */
     public double getPrice()
     {
         return price;
     }
-
+    /**
+     * @return "Room: " + number + " Price: $" + price
+     */
     public String toString()
     {
         return "Room: " + number + " Price: $" + price;

@@ -8,7 +8,10 @@ package hotelApp;
 public class ComprehensiveReceipt implements Receipt
 {
     private Account account;
-
+    /**
+ 	 *Constructs a receipt.
+ 	 *@param a the account
+     */
     public ComprehensiveReceipt(Account a)
     {
         account = a;

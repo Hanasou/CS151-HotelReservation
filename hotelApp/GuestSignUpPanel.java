@@ -7,6 +7,7 @@ import java.awt.event.*;
 /**
  * Panel for having a guest sign in
  * @author Roy Zhang
+ * @author Welby Chan
  * Date created: 11/13/2018
  */
 public class GuestSignUpPanel extends JFrame
@@ -21,6 +22,11 @@ public class GuestSignUpPanel extends JFrame
 	private JPanel panel;
 	private JButton backButton;
 	
+    /**
+ 	 *Constructs a sign up panel
+ 	 *@param db the data storage
+ 	 *@param width the width of panel
+ 	 */
 	public GuestSignUpPanel(DataStorage db, int width)
 	{
 		this.db = db;

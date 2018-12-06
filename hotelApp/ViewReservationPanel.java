@@ -12,7 +12,11 @@ public class ViewReservationPanel extends JFrame {
 
 	private DataStorage db;
 	private Account acc;
-	
+    /**
+ 	 *Constructs a view reservation panel
+ 	 *@param acc the account
+ 	 *@param db the data storage
+ 	 */
 	public ViewReservationPanel(Account acc, DataStorage db) {
 		this.db = db;
 		this.acc = acc;
