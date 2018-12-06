@@ -10,19 +10,27 @@ public class ComprehensiveReceipt implements Receipt
     private Account account;
     /**
  	 *Constructs a receipt.
- 	 *@param a the account
+ 	 *@param a the account to create the receipt for
      */
     public ComprehensiveReceipt(Account a)
     {
         account = a;
     }
 
+    /**
+     * The header for the receipt, where the user's name is displayed
+     * @return a string containing the user's name
+     */
     @Override
     public String header()
     {
         return "Receipt for: " + account.getName();
     }
 
+    /**
+     * Constructs and returns a list of all reservations, and their costs with a total cost at the bottom
+     * @return a list of all reservations attached to the account, with a total cost at the bottom
+     */
     @Override
     public String receiptList()
     {

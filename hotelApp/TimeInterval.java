@@ -111,7 +111,12 @@ public class TimeInterval
     {
         return startTime.toString() + " - " + endTime.toString();
     }
-  
+
+    /**
+     * Compares this against any parameter passed in for equality
+     * @param obj the object to compare to
+     * @return true if equal, false otherwise
+     */
     @Override
     public boolean equals(Object obj)
     {

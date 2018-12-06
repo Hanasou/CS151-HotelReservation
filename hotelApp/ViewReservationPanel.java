@@ -1,12 +1,11 @@
 package hotelApp;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 /**
- * Frame for viewing reservations made on an account. Guest inputs the reservation to delete it.
- * @author Roy
- *
+ * Panel that allows selection between guest and manager accounts
+ * @author Roy Zhang
+ * Date created: 12/03/2018
  */
 public class ViewReservationPanel extends JFrame {
 
@@ -29,14 +28,14 @@ public class ViewReservationPanel extends JFrame {
 		JButton goBack = new JButton("Done");
 		
 		for (Reservation r : acc.getReservations()) {
-			reservations.append(r.stringView() + "\n");
+			reservations.append(r.toStringShort() + "\n");
 		}
 		
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) throws NullPointerException {
 				Reservation deleteMe = null;
 				for (Reservation r : acc.getReservations()) {
-					if (insertReservation.getText().equals(r.stringView())) {
+					if (insertReservation.getText().equals(r.toStringShort())) {
 						deleteMe = r;
 					}
 				}
@@ -44,7 +43,7 @@ public class ViewReservationPanel extends JFrame {
 				db.deleteReservationFromAccount(acc, deleteMe);
 				reservations.setText("Current Reservations" + "\n");
 				for (Reservation r : acc.getReservations()) {
-					reservations.append(r.stringView() + "\n");
+					reservations.append(r.toStringShort() + "\n");
 				}
 				}
 				catch (NullPointerException npe) {

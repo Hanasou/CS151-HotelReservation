@@ -78,7 +78,6 @@ public class GuestSignInPanel extends JFrame
 				}
 			}
 		});
-		//TODO: Add this button to frame
 		backButton = new JButton("Back");
 		backButton.addActionListener(new ActionListener()
 		{
@@ -116,7 +115,7 @@ public class GuestSignInPanel extends JFrame
 //		setLocation(250,250);
 		
 	    
-	    /**
+	    /*
 	    title.setBounds(width/2 - width/12,width/8,150,20);
 	    username.setBounds(width/2 - 75,width/3 - 20,150,20);
 	    password.setBounds(width/2 - 75,width/3 + 20,150,20);

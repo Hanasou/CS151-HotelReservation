@@ -49,8 +49,6 @@ public class ManagerSignInPanel extends JFrame
 				}
 			}
 		});
-
-		//TODO: Add this button to frame
 		backButton = new JButton("Back");
 		backButton.addActionListener(new ActionListener()
 		{

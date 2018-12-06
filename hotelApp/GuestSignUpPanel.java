@@ -45,7 +45,7 @@ public class GuestSignUpPanel extends JFrame
 				String usern = username.getText();
 				String passw = password.getText();
 				if (db.getAccountByUserName(usern) == null) {
-					db.addAccount(new GuestAccount(actualName, usern, passw, (int) Math.random()));
+					db.addAccount(new GuestAccount(actualName, usern, passw, db.getNextAccID()));
 					JOptionPane.showMessageDialog(panel, "Account Created. Log in with these credentials.");
 					dispose();
 					GuestSignInPanel signin = new GuestSignInPanel(db, width);

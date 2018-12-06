@@ -15,7 +15,7 @@ public abstract class Account implements Comparable
     private ArrayList<Reservation> reservations;
     
     /**
- 	 *Constructs an account.
+ 	 *Constructs an account with the given parameters
  	 *@param name the account owner
  	 *@param username the user id
  	 *@param password the pass id
@@ -33,9 +33,10 @@ public abstract class Account implements Comparable
 
 
     /**
-     * CompareTo method to satisfy Comparable interface implementation
+     * CompareTo method to satisfy Comparable interface implementation <BR>
      * Compares fist by name, then by username
-     * @param other
+     * @param other the object to be compared to
+     * @return int specifying if other should be before, is equal to, or after this
      */
     @Override
     public int compareTo(Object other)
@@ -58,62 +59,74 @@ public abstract class Account implements Comparable
         return 0;
     }
     /**
-     * addReservation method to add reservations
-     * @param other
+     * adds a reservation to the account's list of reservations
+     * @param r the reservation to be added
      */
     public void addReservation(Reservation r)
     {
         reservations.add(r);
     }
 
+
+    /**
+     * Overridden equals method to compare using the criteria specified in the CompareTo method
+     * @param that the object to be compared to
+     * @return true if the objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object that)
     {
         return this.compareTo(that) == 0;
     }
 
+
+    /**
+     * Overridden toString method to display the instance variables in the account
+     * @return A string displaying all instance variables
+     */
     @Override
     public String toString()
     {
 
         return "name: " + name +  " username: " + username + " manager: " + isManager + " account ID: " + accID;
     }
+
     /**
-     * @return isManager
+     * Returns the boolean stating if the account is a manager account or not
+     * @return true if account is a manager, false if not
      */
     public boolean isManager()
     {
         return isManager;
     }    
     /**
-     * @return username
+     * Returns the username of the account
+     * @return the String username
      */
     public String getUsername() {
     	return username;
     }
     /**
-     * @return password
+     * Returns the password of the account
+     * @return the String password
      */
     public String getPassword() {
     	return password;
     }
     /**
-     * @return name
+     * Returns the name of the account
+     * @return the String name
      */
     public String getName() {
     	return name;
     }
     /**
-     * @return reservations
+     * Returns the list of reservations attached to this account
+     * @return the arraylist of reservations
      */
     public ArrayList<Reservation> getReservations()
     {
         return reservations;
     }
-    /**
-     * @param r the removed reservation
-     */
-    public void cancelReservation(Reservation r) {
-    	reservations.remove(r);
-    }
+
 }
