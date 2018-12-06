@@ -30,7 +30,9 @@ public class ReservationPanel extends JFrame
 		JLabel checkin = new JLabel("Check in");
 		JLabel checkout = new JLabel("Check out");
 		JTextField checkinField = new JTextField(10);
+		checkinField.setText("Format: MM/DD/YYYY");
 		JTextField checkoutField = new JTextField(10);
+		checkoutField.setText("Format: MM/DD/YYYY");
 		JButton threeHundred = new JButton("$300");
 		threeHundred.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -59,6 +61,11 @@ public class ReservationPanel extends JFrame
 				try {
 				availableRooms.setText("");
 				TimeInterval ti = new TimeInterval(LocalDate.parse(checkinField.getText(), date_format) , LocalDate.parse(checkoutField.getText(), date_format));
+				if (ti.getEndTime().isBefore(ti.getStartTime()))
+				{
+					JOptionPane.showMessageDialog(roomAvailability, "Start date must be before the end date!");
+					return;
+				}
 				availableRooms.append("Available Rooms: " + checkinField.getText() + " - " + checkoutField.getText() + "\n");
 				for (Room r : db.getAvailableRooms(ti, price)) {
 					availableRooms.append(r.toString() + "\n");
@@ -91,11 +98,15 @@ public class ReservationPanel extends JFrame
 				else if (ti.getStartTime().compareTo(LocalDate.now()) < 1 || ti.getEndTime().compareTo(LocalDate.now()) < 1) {
 					JOptionPane.showMessageDialog(roomAvailability, "You can't reserve a room in the past. Sorry bud.");
 				}
+				else if (ti.getEndTime().isBefore(ti.getStartTime()))
+				{
+					JOptionPane.showMessageDialog(roomAvailability, "Start date must be before the end date!");
+				}
 				else {
 				Reservation confirm = new Reservation(acc, room, ti);
 				db.addReservationToAccount(acc, confirm);
 				reservations.add(confirm);
-				JOptionPane.showMessageDialog(roomAvailability, confirm.toString() + "\n" + "Reservation Confirmed");
+				JOptionPane.showMessageDialog(roomAvailability, confirm.stringView() + "\n" + "Reservation Confirmed");
 				}
 				}
 				catch (DateTimeParseException dtpe) {
