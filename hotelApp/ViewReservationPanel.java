@@ -41,6 +41,7 @@ public class ViewReservationPanel extends JFrame {
 				}
 				try {
 				db.deleteReservationFromAccount(acc, deleteMe);
+				deleteMe.getRoom().getReservations().remove(deleteMe);
 				reservations.setText("Current Reservations" + "\n");
 				for (Reservation r : acc.getReservations()) {
 					reservations.append(r.toStringShort() + "\n");

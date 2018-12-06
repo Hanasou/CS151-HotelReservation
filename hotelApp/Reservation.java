@@ -22,6 +22,7 @@ public class Reservation
     	this.attachedAccount = a;
     	this.room = r;
     	this.time = t;
+    	r.getReservations().add(this);
     }
     /**
      * Returns the attached account
