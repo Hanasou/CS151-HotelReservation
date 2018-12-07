@@ -8,7 +8,7 @@ import javax.swing.*;
 
 /**
  * Panel that allows a manager to sign in
- * @author
+ * @author Roy Zhang
  * Date created: 11/13/2018
  */
 public class ManagerSignInPanel extends JFrame
@@ -42,7 +42,7 @@ public class ManagerSignInPanel extends JFrame
 				String login = username.getText();
 				String passw = password.getText();
 				if (db.managerValidate(login, passw)) {
-					System.out.println("validated");
+					ManagerControllers mc = new ManagerControllers(db);
 				}
 				else {
 					JOptionPane.showMessageDialog(panel, "Credentials not found. Please try again.");

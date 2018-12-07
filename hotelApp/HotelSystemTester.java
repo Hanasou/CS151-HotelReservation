@@ -18,12 +18,6 @@ public class HotelSystemTester
     public static void main(String[] args)
     {
     	DataStorage db = new DataStorage();
-    	CalendarPanel cp = new CalendarPanel(db);
-    	JFrame frame = new JFrame();
-    	frame.add(cp);
-    	
-    	frame.pack();
-    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	frame.setVisible(true);
+    	ManagerControllers mc = new ManagerControllers(db);
     }
 }

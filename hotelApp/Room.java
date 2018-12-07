@@ -1,5 +1,6 @@
 package hotelApp;
 
+import java.util.ArrayList;
 /**
  * Class that contains information related to the room, such as a number and price
  * @author Nicholas Papano
@@ -9,6 +10,7 @@ public class Room
 {
     private int number;
     private double price;
+    private ArrayList<Reservation> reservations;
     /**
      * Constructs a room given the instance variables
      * @param n the number
@@ -17,6 +19,7 @@ public class Room
     public Room (int n, double p) {
     	this.number = n;
     	this.price = p;
+    	this.reservations = new ArrayList<Reservation>();
     }
     /**
      * Gets the room's number
@@ -57,5 +60,12 @@ public class Room
            return number == that.number && price == that.price;
        }
        return false;
+    }
+    /**
+     * Gets all the valid reservations for this room
+     * @return ArrayList of reservations that holds all valid reservations made on this room
+     */
+    public ArrayList<Reservation> getReservations() {
+    	return reservations;
     }
 }

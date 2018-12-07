@@ -111,6 +111,7 @@ public class ReservationPanel extends JFrame
 				Reservation confirm = new Reservation(acc, room, ti);
 				db.addReservationToAccount(acc, confirm);
 				reservations.add(confirm);
+				db.saveToFile();
 				JOptionPane.showMessageDialog(roomAvailability, confirm.toStringShort() + "\n" + "Reservation Confirmed");
 				}
 				}
