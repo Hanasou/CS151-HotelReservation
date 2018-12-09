@@ -42,6 +42,7 @@ public class ManagerSignInPanel extends JFrame
 				String login = username.getText();
 				String passw = password.getText();
 				if (db.managerValidate(login, passw)) {
+					dispose();
 					ManagerControllers mc = new ManagerControllers(db);
 				}
 				else {
