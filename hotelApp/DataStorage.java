@@ -2,13 +2,10 @@ package hotelApp;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.io.File;
 
 /**
  * Class that stores all accounts in memory, and offloads data into files for long-term storage
@@ -73,6 +70,8 @@ public class DataStorage
         {
             Scanner accSc = new Scanner(accountFile);
             Scanner resSc = new Scanner(reservationFile);
+            accounts = new ArrayList<>();
+            accID = 0;
             String nextLn;
 
             // Get accounts from file
@@ -144,6 +143,12 @@ public class DataStorage
     {
         try
         {
+            PrintWriter pw = new PrintWriter(accountFile);
+            pw.write("");
+            pw.close();
+            pw = new PrintWriter(reservationFile);
+            pw.write("");
+            pw.close();
             FileWriter accWriter = new FileWriter(accountFile);
             FileWriter resWriter = new FileWriter(reservationFile);
             for (Account a : accounts)

@@ -45,6 +45,8 @@ public class TimeInterval
         {
             return true;
         }
+        else if (this.startTime.equals(that.startTime) || this.endTime.equals(that.endTime))
+            return true;
         return false;
     }
 

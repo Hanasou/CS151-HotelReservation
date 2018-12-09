@@ -24,12 +24,14 @@ public class ManagerControllers extends JFrame{
 		load.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				db.populateFromFile();
+				JOptionPane.showMessageDialog(null, "Loaded from file");
 			}
 		});
 		JButton save = new JButton("Save");
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				db.saveToFile();
+				JOptionPane.showMessageDialog(null, "Saved to file");
 			}
 		});
 		JButton quit = new JButton("Quit");
@@ -37,6 +39,7 @@ public class ManagerControllers extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				db.saveToFile();
 				dispose();
+				System.exit(0);
 			}
 		});
 		buttons.add(load);
