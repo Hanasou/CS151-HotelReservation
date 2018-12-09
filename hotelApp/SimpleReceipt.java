@@ -30,7 +30,7 @@ public class SimpleReceipt implements Receipt
     @Override
     public String header()
     {
-        return account.getName();
+        return "Simple receipt for: " + account.getName();
     }
 
     /**

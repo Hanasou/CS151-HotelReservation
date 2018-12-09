@@ -72,7 +72,13 @@ public class ReservationPanel extends JFrame
 					return;
 				}
 				availableRooms.append("Available Rooms: " + checkinField.getText() + " - " + checkoutField.getText() + "\n");
-				for (Room r : db.getAvailableRooms(ti, price)) {
+				ArrayList<Room> rooms = db.getAvailableRooms(ti, price);
+				for (Reservation r : reservations)
+				{
+					if (r.getTime().overlap(ti))
+						rooms.remove(r.getRoom());
+				}
+				for (Room r : rooms) {
 					availableRooms.append(r.toString() + "\n");
 				}
 				}
@@ -101,7 +107,7 @@ public class ReservationPanel extends JFrame
 					JOptionPane.showMessageDialog(roomAvailability, "Length of reservation cannot be longer than 60 nights!");
 				}
 				else if (ti.getStartTime().compareTo(LocalDate.now()) < 1 || ti.getEndTime().compareTo(LocalDate.now()) < 1) {
-					JOptionPane.showMessageDialog(roomAvailability, "You can't reserve a room in the past. Sorry bud.");
+					JOptionPane.showMessageDialog(roomAvailability, "You can't reserve a room in the past!");
 				}
 				else if (ti.getEndTime().isBefore(ti.getStartTime()))
 				{
@@ -133,7 +139,7 @@ public class ReservationPanel extends JFrame
 						JFrame receipt = new JFrame();
 						JPanel panel = new JPanel();
 						JTextArea receiptArea = new JTextArea(15,10);
-						receiptArea.setText(simple.receiptList());
+						receiptArea.setText(simple.header()+ "\n" +simple.receiptList());
 						receiptArea.setEditable(false);
 						panel.add(receiptArea);
 						receipt.add(panel);
@@ -149,7 +155,7 @@ public class ReservationPanel extends JFrame
 						JFrame receipt = new JFrame();
 						JPanel panel = new JPanel();
 						JTextArea receiptArea = new JTextArea(15,10);
-						receiptArea.setText(comprehensive.receiptList());
+						receiptArea.setText(comprehensive.header()+ "\n" +comprehensive.receiptList());
 						receiptArea.setEditable(false);
 						panel.add(receiptArea);
 						receipt.add(panel);

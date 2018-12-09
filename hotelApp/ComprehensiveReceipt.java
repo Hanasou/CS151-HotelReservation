@@ -24,7 +24,7 @@ public class ComprehensiveReceipt implements Receipt
     @Override
     public String header()
     {
-        return "Receipt for: " + account.getName();
+        return "Comprehensive receipt for: " + account.getName();
     }
 
     /**
