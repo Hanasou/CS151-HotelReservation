@@ -1,6 +1,6 @@
 package hotelApp;
 /**
- * Panel for having a guest sign in
+ * Deploys the Hotel Reservation System. Constructs a DataStorge object and an AccountSelectionPanel. All other functions can be accessed from these.
  * @author 
  * Date created: 11/13/2018
  */

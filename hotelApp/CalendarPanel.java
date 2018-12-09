@@ -35,6 +35,9 @@ public class CalendarPanel extends JPanel {
 		month.setEditable(false);
 		JButton prev = new JButton("<");
 		JButton next = new JButton(">");
+		JButton prevYear = new JButton("<<");
+		JButton nextYear = new JButton(">>");
+		/*
 		prev.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				date = date.minusMonths(1);
@@ -49,7 +52,21 @@ public class CalendarPanel extends JPanel {
 				refresh();
 			}
 		});
-		
+		prevYear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.minusMonths(12);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				refresh();
+			}
+		});
+		nextYear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.plusMonths(12);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				refresh();
+			}
+		});
+		*/
 		JPanel calendarGrid = new JPanel(new GridLayout(0,7));
 		calendarGrid.add(new JLabel("Su"));
 		calendarGrid.add(new JLabel("Mo"));
@@ -93,9 +110,43 @@ public class CalendarPanel extends JPanel {
 				}
 			});
 		}
+		prev.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.minusMonths(1);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
+				refresh();
+			}
+		});
+		next.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.plusMonths(1);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
+				refresh();
+			}
+		});
+		prevYear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.minusMonths(12);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
+				refresh();
+			}
+		});
+		nextYear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				date = date.plusMonths(12);
+				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
+				refresh();
+			}
+		});
 		header.add(month);
 		header.add(prev);
 		header.add(next);
+		header.add(prevYear);
+		header.add(nextYear);
 		JPanel calendarArea = new JPanel(new BorderLayout());
 		calendarArea.add(header, BorderLayout.NORTH);
 		calendarArea.add(calendarGrid, BorderLayout.SOUTH);
