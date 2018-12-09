@@ -39,6 +39,7 @@ public class CalendarPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				date = date.minusMonths(1);
 				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
 				refresh();
 			}
 		});
@@ -46,6 +47,7 @@ public class CalendarPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				date = date.plusMonths(1);
 				month.setText(date.getMonth().toString() + " " + date.getYear());
+				rooms.setText("");
 				refresh();
 			}
 		});

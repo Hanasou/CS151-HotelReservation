@@ -2,6 +2,8 @@ package hotelApp;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 /**
  * Panel that allows selection between guest and manager accounts
  * @author Roy Zhang
@@ -18,40 +20,16 @@ public class ViewReservationPanel extends JFrame {
  	 */
 	public ViewReservationPanel(Account acc, DataStorage db) {
 		this.db = db;
-		this.acc = acc;
+		this.acc = db.getAccountByUserName(acc.getUsername());
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-		JTextArea reservations = new JTextArea("Current Reservations" + "\n", 10, 21);
-		JTextField insertReservation = new JTextField(15);
-		JLabel label = new JLabel("Input reservation you want to delete. Format must match what is shown below.");
-		JButton delete = new JButton("Delete Reservation");
+		JLabel label = new JLabel("Here are your current Reservations.\nClicking the reservation will delete it!");
+		ArrayList<JButton> reservationsB = new ArrayList<>();
 		JButton goBack = new JButton("Done");
 		
 		for (Reservation r : acc.getReservations()) {
-			reservations.append(r.toStringShort() + "\n");
+			reservationsB.add(new JButton(r.toStringShort()));
 		}
-		
-		delete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) throws NullPointerException {
-				Reservation deleteMe = null;
-				for (Reservation r : acc.getReservations()) {
-					if (insertReservation.getText().equals(r.toStringShort())) {
-						deleteMe = r;
-					}
-				}
-				try {
-				db.deleteReservationFromAccount(acc, deleteMe);
-				deleteMe.getRoom().getReservations().remove(deleteMe);
-				reservations.setText("Current Reservations" + "\n");
-				for (Reservation r : acc.getReservations()) {
-					reservations.append(r.toStringShort() + "\n");
-				}
-				}
-				catch (NullPointerException npe) {
-					JOptionPane.showMessageDialog(panel, "Reservation not found");
-				}
-			}
-		});
 		goBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -59,9 +37,32 @@ public class ViewReservationPanel extends JFrame {
 			}
 		});
 		panel.add(label);
-		panel.add(reservations);
-		panel.add(insertReservation);
-		panel.add(delete);
+
+		for (JButton b : reservationsB)
+		{
+			b.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) throws NullPointerException {
+					Reservation deleteMe = null;
+					for (Reservation r : acc.getReservations()) {
+						if (b.getText().equals(r.toStringShort())) {
+							deleteMe = r;
+						}
+					}
+					try {
+						db.deleteReservationFromAccount(acc, deleteMe);
+						deleteMe.getRoom().getReservations().remove(deleteMe);
+					}
+					catch (NullPointerException npe) {
+						JOptionPane.showMessageDialog(panel, "Reservation not found");
+					}
+					b.setVisible(false);
+				}
+			});
+		}
+		for (JButton b : reservationsB)
+		{
+			panel.add(b);
+		}
 		panel.add(goBack);
 		add(panel);
 		

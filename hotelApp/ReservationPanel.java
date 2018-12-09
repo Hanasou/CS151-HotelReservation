@@ -106,7 +106,7 @@ public class ReservationPanel extends JFrame
 				else if (ti.amountOfDays() > 60) {
 					JOptionPane.showMessageDialog(roomAvailability, "Length of reservation cannot be longer than 60 nights!");
 				}
-				else if (ti.getStartTime().compareTo(LocalDate.now()) < 1 || ti.getEndTime().compareTo(LocalDate.now()) < 1) {
+				else if (ti.getStartTime().compareTo(LocalDate.now()) < 0 || ti.getEndTime().compareTo(LocalDate.now()) < 0) {
 					JOptionPane.showMessageDialog(roomAvailability, "You can't reserve a room in the past!");
 				}
 				else if (ti.getEndTime().isBefore(ti.getStartTime()))
@@ -115,9 +115,8 @@ public class ReservationPanel extends JFrame
 				}
 				else {
 				Reservation confirm = new Reservation(acc, room, ti);
-				db.addReservationToAccount(acc, confirm);
 				reservations.add(confirm);
-				db.saveToFile();
+				db.addReservationToAccount(acc, confirm);
 				JOptionPane.showMessageDialog(roomAvailability, confirm.toStringShort() + "\n" + "Reservation Confirmed");
 				}
 				}
